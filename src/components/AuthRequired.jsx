@@ -4,33 +4,23 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebaseConfig.jsx'
 
 export default function AuthRequired() {
-  const [authorized, setAuthorized] = React.useState(false)
-  const [currentUser, setCurrentUser] = React.useState('')
-
+  const [currentUser, setCurrentUser] = React.useState()
+  
+  console.log(currentUser)
   React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log(user)
-        setAuthorized(true)
+    const unsubscribe = auth.onAuthStateChanged(user => {
         setCurrentUser(user)
-      } else {
-        setAuthorized(false)
-        console.log('set authorized false')
-      }
-    });
-     // Cleanup function to unsubscribe when the component is unmounted
-    return () => {
-      // Unsubscribe from the onAuthStateChanged listener
-      if (unsubscribe) {
-        unsubscribe();
-      }
-    }
-  }, [])
-    
+        setLoading(false)
+        console.log(currentUser)
+    })
 
-  if (!authorized)
+    return unsubscribe
+}, [])
+
+  
+  if (!currentUser)
   {
-    return <Navigate to='/login' />
+    return <Navigate to='/signin' />
   }
 
   return <Outlet currentUser={currentUser}/>

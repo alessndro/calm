@@ -9,6 +9,7 @@ export default function Signup() {
     const [error, setError] = React.useState('')
     const navigate = useNavigate()
     
+    const {signUp} = useAuthContext()
     function handleChange(event) {
         setUser(prevUser => {
             return {
@@ -24,18 +25,19 @@ export default function Signup() {
         {
             setError('Passwords are not identical')
         }
-        console.log(user)
+
         try {
-            console.log('inside try')
-            const response = await createUserWithEmailAndPassword(auth, user.username, user.password)
-            console.log(response)
+            setLoading(true)
+            await signUp(user.username, user.password)
             navigate('/', { replace: true });
 
         }
         catch (error){
             setError(error.message)
         }
-        console.log('sign up done')
+        finally {
+            setLoading(false)
+        }
     }
   
   

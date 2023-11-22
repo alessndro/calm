@@ -11,28 +11,29 @@ import Relationships from './pages/Relationships.jsx'
 import Sleep from './pages/Sleep.jsx'
 import Signup from './pages/Signup.jsx'
 import Signin from './pages/Signin.jsx'
-import Signout from './pages/Signout.jsx'
 
 import './index.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import {AuthProvider} from './components/AuthContext.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="signin" element={<Signin />} />
-        <Route path="signout" element={<Signout />} />
-        <Route element={<AuthRequired />}>
-          <Route path="sleep" element={<Sleep />} />
-          <Route path="movement" element={<Movement />} />
-          <Route path="morning" element={<Morning />} />
-          <Route path="nutrition" element={<Nutrition />} />
-          <Route path="relationships" element={<Relationships />} />
+    <AuthProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="signin" element={<Signin />} />
+          <Route element={<AuthRequired />}>
+            <Route path="sleep" element={<Sleep />} />
+            <Route path="movement" element={<Movement />} />
+            <Route path="morning" element={<Morning />} />
+            <Route path="nutrition" element={<Nutrition />} />
+            <Route path="relationships" element={<Relationships />} />
+          </Route>
         </Route>
-      </Route>
-    </Routes>
+      </Routes>
+    </AuthProvider>
   </BrowserRouter>
 )

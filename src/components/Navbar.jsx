@@ -9,13 +9,30 @@ import nutrition from '../assets/slack.svg'
 import sleep from '../assets/sunset.svg'
 import morning from '../assets/sunrise.svg'
 import relationships from '../assets/users.svg'
+import {auth} from '../firebaseConfig.jsx'
+import {signOut} from "firebase/auth";
+import { useAuthContext } from '../components/AuthContext.jsx';
 
 export default function Navbar() {
   const [isMenuShown, setIsMenuShown] = React.useState(false)
 
+  const {signOut} = useAuthContext()
+
   function handleToggle() {
     setIsMenuShown(prevState => !prevState)
   }
+
+  async function handleLogOut() {
+    try {
+      await signout();
+      // Sign-out successful, now navigate to the "/login" route
+      navigate('/', { state: { message: 'User Successfully logged out' } });
+    } catch (error) {
+      // Handle sign-out error
+      console.log(error)
+      setError('Sign-out error:', error);
+    }
+  };
 
   return (
     <>
@@ -38,6 +55,7 @@ export default function Navbar() {
         <Link className='hidden sm:flex' to='/signin'>
             <p className='bg-black text-white px-4 py-2 rounded-full flex justify-center'>Sign in</p>
         </Link>
+        <button onClick={handleLogOut}>Sign out</button>
        {isMenuShown ? <img onClick={handleToggle} alt="close icon" width={30} height={30} className='flex sm:hidden' src={closeIcon}/> : <img onClick={handleToggle} alt="hamburger icon" width={30} height={30} className='flex sm:hidden' src={menuIcon} />}
     </div>
      {

@@ -2,12 +2,16 @@ import React from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebaseConfig.jsx'
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../components/AuthContext.jsx';
 
 export default function Signin() {
 
     const [user, setUser] = React.useState({username: '', password: ''})
     const [error, setError] = React.useState('')
+    const [loading, setLoading] = React.useState(false)
     const navigate = useNavigate()
+
+    const {signIn} = useAuthContext()
 
     function handleChange(event) {
         setUser(prevUser => {
@@ -20,18 +24,18 @@ export default function Signin() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-        console.log(user)
         try {
-            console.log('inside try')
-            const response = await signInWithEmailAndPassword(auth, user.username, user.password)
-            console.log(response)
+            setLoading(true)
+            await signIn(user.username, user.password)
             navigate('/', { replace: true });
 
         }
         catch (error){
             setError(error.message)
         }
-        console.log('sign in done')
+        finally {
+            setLoading(false)
+        }
     }
 
   
