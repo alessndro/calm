@@ -21,16 +21,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signout" element={<Signout />} />
+        <Route index element={<Dashboard />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="signin" element={<Signin />} />
+        <Route path="signout" element={<Signout />} />
         <Route element={<AuthRequired />}>
-          <Route path="/sleep" element={<Sleep />} />
-          <Route path="/movement" element={<Movement />} />
-          <Route path="/morning" element={<Morning />} />
-          <Route path="/nutrition" element={<Nutrition />} />
-          <Route path="/relationships" element={<Relationships />} />
+          <Route path="sleep" element={<Sleep />} />
+          <Route path="movement" element={<Movement />} />
+          <Route path="morning" element={<Morning />} />
+          <Route path="nutrition" element={<Nutrition />} />
+          <Route path="relationships" element={<Relationships />} />
         </Route>
       </Route>
     </Routes>

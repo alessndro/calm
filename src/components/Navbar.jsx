@@ -19,17 +19,17 @@ export default function Navbar() {
 
   return (
     <>
-    <div className='relative p-6 text-black border bg-gray-100 border-red-500 w-full justify-between flex flex-row md:w-1/5 md:flex-col md:items-between'>
+    <div className='relative px-5 py-10 text-black bg-gray-100 w-full justify-between flex flex-row md:w-1/4 md:flex-col md:items-between lg:px-10'>
         <div className='flex items-center md:items-start md:flex-col'>
             <h3 className='font-black text-2xl md:text-3xl'>Calm.</h3>
             
             <div className='hidden gap-2 ml-10 md:gap-4 md:ml-0 md:mt-20 flex-row sm:flex md:flex-col'>
-              <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><p className='text-sm md:text-lg'>Dashboard</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={sleep} width={20} height={20}/><p className='text-sm md:text-lg'>Sleep</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={movement} width={20} height={20}/><p className='text-sm md:text-lg'>Movement</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={morning} width={20} height={20}/><p className='text-sm md:text-lg'>Morning</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={nutrition} width={20} height={20}/><p className='text-sm md:text-lg'>Nutrition</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={relationships} width={20} height={20}/><p className='text-sm md:text-lg'>Relationships</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Dashboard</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={sleep} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Sleep</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={movement} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Movement</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={morning} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Morning</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={nutrition} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Nutrition</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={relationships} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Relationships</p></div>
 
             </div>
         </div>
