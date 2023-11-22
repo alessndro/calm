@@ -1,10 +1,14 @@
 import React from 'react'
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebaseConfig.jsx'
+import { useNavigate } from 'react-router-dom';
 
 export default function Signin() {
 
     const [user, setUser] = React.useState({username: '', password: ''})
     const [error, setError] = React.useState('')
-    
+    const navigate = useNavigate()
+
     function handleChange(event) {
         setUser(prevUser => {
             return {
@@ -14,11 +18,22 @@ export default function Signin() {
         })
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
         console.log(user)
+        try {
+            console.log('inside try')
+            const response = await signInWithEmailAndPassword(auth, user.username, user.password)
+            console.log(response)
+            navigate('/', { replace: true });
+
+        }
+        catch (error){
+            setError(error.message)
+        }
+        console.log('sign in done')
     }
-  
+
   
 return (
     <div className='h-full w-full flex items-center flex-col'>

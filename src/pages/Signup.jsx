@@ -1,39 +1,14 @@
 import React from 'react'
-import {getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebaseConfig.jsx'
 import { useNavigate } from 'react-router-dom';
 
-async function handleSubmit(event) {
-  event.preventDefault();
-
-  if (user.password !== user.password1) {
-    setError('Passwords not identical');
-    return;
-  }
-
-  console.log(user);
-
-  try {
-    const response = await createUserWithEmailAndPassword(auth, user.username, user.password);
-    const newUser = response.user;
-
-    if (newUser) {
-      // Use useNavigate to navigate to the "/dashboard" route
-      const navigate = useNavigate();
-      navigate('/dashboard');
-    }
-  } catch (error) {
-    setError(error.message);
-  }
-
-  console.log('sign up done');
-}
-
-
-export default function Signin() {
+export default function Signup() {
 
     const [user, setUser] = React.useState({username: '', password: '', password1: ''})
     const [error, setError] = React.useState('')
+    const navigate = useNavigate()
+    
     function handleChange(event) {
         setUser(prevUser => {
             return {
@@ -47,16 +22,15 @@ export default function Signin() {
         event.preventDefault()
         if (user.password !== user.password1)
         {
-            setError('Passwords not identical')
+            setError('Passwords are not identical')
         }
         console.log(user)
         try {
+            console.log('inside try')
             const response = await createUserWithEmailAndPassword(auth, user.username, user.password)
-            const user = response.user
-            if (user) {
-                const navigate = useNavigate()
-                navigate('dashboard')
-            }
+            console.log(response)
+            navigate('/', { replace: true });
+
         }
         catch (error){
             setError(error.message)

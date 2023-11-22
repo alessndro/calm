@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-    <div className='relative px-5 py-10 text-black bg-gray-100 w-full justify-between flex flex-row md:w-1/4 md:flex-col md:items-between lg:px-10'>
+    <div className='relative px-5 py-10 text-black bg-gray-100 w-full justify-between flex flex-row md:w-1/4 lg:max-w-xs md:flex-col md:items-between lg:px-10'>
         <div className='flex items-center md:items-start md:flex-col'>
             <h3 className='font-black text-2xl md:text-3xl'>Calm.</h3>
             
