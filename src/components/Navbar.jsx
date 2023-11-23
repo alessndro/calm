@@ -15,6 +15,7 @@ import { useAuthContext } from '../components/AuthContext.jsx';
 
 export default function Navbar() {
   const [isMenuShown, setIsMenuShown] = React.useState(false)
+  const [error, setError] = React.useState('')
 
   const {signOut} = useAuthContext()
 
@@ -24,7 +25,7 @@ export default function Navbar() {
 
   async function handleLogOut() {
     try {
-      await signout();
+      await signOut();
       // Sign-out successful, now navigate to the "/login" route
       navigate('/', { state: { message: 'User Successfully logged out' } });
     } catch (error) {

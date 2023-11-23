@@ -1,28 +1,19 @@
 import React from 'react'
-import { Outlet, Navigate } from "react-router-dom"
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from '../firebaseConfig.jsx'
+import {Outlet, Navigate} from 'react-router-dom'
+import {useAuthContext} from './AuthContext'
 
 export default function AuthRequired() {
-  const [currentUser, setCurrentUser] = React.useState()
-  
-  console.log(currentUser)
-  React.useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-        setCurrentUser(user)
-        setLoading(false)
-        console.log(currentUser)
-    })
-
-    return unsubscribe
-}, [])
-
-  
-  if (!currentUser)
-  {
-    return <Navigate to='/signin' />
-  }
-
-  return <Outlet currentUser={currentUser}/>
-
+    // Retrieve current user from Context,
+    const {currentUser} = useAuthContext()
+    
+    // If logged in, show content, otherwise login first
+    if (currentUser) {
+            return <Outlet />
+    }
+    else {
+            return <Navigate 
+            to="/signin"
+            state={{message: "Log in first, please"}} />
+    }
+      
 }
