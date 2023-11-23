@@ -9,15 +9,13 @@ import nutrition from '../assets/slack.svg'
 import sleep from '../assets/sunset.svg'
 import morning from '../assets/sunrise.svg'
 import relationships from '../assets/users.svg'
-import {auth} from '../firebaseConfig.jsx'
-import {signOut} from "firebase/auth";
 import { useAuthContext } from '../components/AuthContext.jsx';
 
 export default function Navbar() {
   const [isMenuShown, setIsMenuShown] = React.useState(false)
   const [error, setError] = React.useState('')
 
-  const {signOut} = useAuthContext()
+  const {signout} = useAuthContext()
 
   function handleToggle() {
     setIsMenuShown(prevState => !prevState)
@@ -25,9 +23,9 @@ export default function Navbar() {
 
   async function handleLogOut() {
     try {
-      await signOut();
+      await signout();
       // Sign-out successful, now navigate to the "/login" route
-      navigate('/', { state: { message: 'User Successfully logged out' } });
+      navigate('/');
     } catch (error) {
       // Handle sign-out error
       console.log(error)
