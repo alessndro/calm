@@ -15,7 +15,7 @@ export default function Navbar() {
   const [isMenuShown, setIsMenuShown] = React.useState(false)
   const [error, setError] = React.useState('')
 
-  const {signout} = useAuthContext()
+  const {signout, currentUser} = useAuthContext()
 
   function handleToggle() {
     setIsMenuShown(prevState => !prevState)
@@ -40,21 +40,23 @@ export default function Navbar() {
             <h3 className='font-black text-2xl md:text-3xl'>Calm.</h3>
             
             <div className='hidden gap-2 ml-10 md:gap-4 md:ml-0 md:mt-20 flex-row sm:flex md:flex-col'>
-              <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Dashboard</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={sleep} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Sleep</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={movement} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Movement</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={morning} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Morning</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={nutrition} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Nutrition</p></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={relationships} width={20} height={20}/><p className='text-sm 3xl:text-lg'>Relationships</p></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><Link to="/"><p className='text-sm 3xl:text-lg'>Dashboard</p></Link></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={sleep} width={20} height={20}/><Link to="sleep"><p className='text-sm 3xl:text-lg'>Sleep</p></Link></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={movement} width={20} height={20}/><Link to="movement"><p className='text-sm 3xl:text-lg'>Movement</p></Link></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={morning} width={20} height={20}/><Link to="morning"><p className='text-sm 3xl:text-lg'>Morning</p></Link></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={nutrition} width={20} height={20}/><Link to="nutrition"><p className='text-sm 3xl:text-lg'>Nutrition</p></Link></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={relationships} width={20} height={20}/><Link to="relationships"><p className='text-sm 3xl:text-lg'>Relationships</p></Link></div>
 
             </div>
         </div>
     
 
-        <Link className='hidden sm:flex' to='/signin'>
+        {/* <Link className='hidden sm:flex' to='/signin'>
             <p className='bg-black text-white px-4 py-2 rounded-full flex justify-center'>Sign in</p>
-        </Link>
-        <button onClick={handleLogOut}>Sign out</button>
+        </Link> */}
+        {currentUser ? <button className='bg-black text-white px-4 py-2 rounded-full hidden justify-center sm:flex' onClick={handleLogOut}>Sign out</button> :  <Link className='hidden sm:flex' to='/signin'>
+            <p className='bg-black text-white px-4 py-2 rounded-full hidden justify-center sm:flex'>Start now</p>
+        </Link> }
        {isMenuShown ? <img onClick={handleToggle} alt="close icon" width={30} height={30} className='flex sm:hidden' src={closeIcon}/> : <img onClick={handleToggle} alt="hamburger icon" width={30} height={30} className='flex sm:hidden' src={menuIcon} />}
     </div>
      {
