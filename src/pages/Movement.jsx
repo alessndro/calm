@@ -32,23 +32,6 @@ export default function Movement() {
   const [isSurveyAvailable, setIsSurveyAvailable] = React.useState(true)
   const {currentUser} = useAuthContext()
 
-
-  // React.useEffect(() => {
-  //   console.log('inside react effect')
-  //   async function getData() {
-  //     const querySnapshot = await getDocs(collection(db, "data"));
-  //     const newData = querySnapshot.docs.map((doc) => {
-  //       return {...doc.data(), id: doc.id}
-  //     })
-  //     const data = newData.find(data => data.user === currentUser.email)
-  //     setMovement(data)
-  //   }
-  //   getData()
-  // },[])
-
-      
- 
- 
   async function handleClick(event){
     console.log(event.target.id)
     setIsSurveyAvailable(false)
@@ -98,7 +81,7 @@ export default function Movement() {
       const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
       console.log(newData)
       const personalData = newData.filter((data) => {
-        return data.user === currentUser?.email
+        return data.user === currentUser?.email && data.element === 'movement'
       })
       console.log(personalData)
       if (personalData.length !== 0)
@@ -107,21 +90,53 @@ export default function Movement() {
         setMovement(personalData[0])
       }
       else {
-      setMovement({
+        setMovement({
         element: 'movement',
         user: `${currentUser.email}`,
         streak: 0,
         checkIns: [],
         lastCheck: '',
         average: 0,
-      })
-      }}
+        })
+      }
+    }
     )
 
     return () => {
       unsubscribe()
     }
   }, [])
+
+  // Although the survey will not be compeletely synced and only when the component is rendered, using the onSnapshot would be an option. For practice sake, I choose the useEffect option
+  React.useEffect(() => {
+    console.log(movement)
+    if (movement.lastCheck)
+    {
+        console.log('inside React useEffect')
+        console.log(movement.lastCheck)
+        // Check if the difference between stored last check in and current time is above 24 hours
+        const lastCheckInTime = movement.lastCheck.toDate().getTime()
+        const currentTime = new Date().getTime()
+
+        const timeDifference = currentTime - lastCheckInTime
+
+        const twentyFourHours = 24 * 60 * 60 * 1000
+        
+        console.log(timeDifference)
+        console.log(twentyFourHours)
+        if (timeDifference > twentyFourHours){
+            setIsSurveyAvailable(true)
+        }
+        else {
+          setIsSurveyAvailable(false)
+        }
+    }
+    else {
+      console.log('there is not movement last check')
+      setIsSurveyAvailable(true)
+    }
+})
+
 
   return (
     <div className='w-full h-full border-yellow-500 p-5 overflow-y-auto'>
@@ -159,14 +174,14 @@ export default function Movement() {
                     <h4 className='mb-5'>Current Streak in days</h4>
                     <p className='font-black text-5xl fade-in '>{movement ? movement.streak : '0'}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
-                    <h4 className='mb-5'>Average Sleep</h4>
+                    <h4 className='mb-5'>Average Score</h4>
                     <p className='font-black text-5xl fade-in'>{movement ? movement.average : '0'}</p>
                   </div>
                 
                 </div>
 
                 <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-5 items-center mt-3'>
-                      <h4 className='mb-5'>Pillars of Sleep</h4>
+                      <h4 className='mb-5'>Pillars of Movement</h4>
                       <div className='flex flex-row items-between gap-10 xl:gap-20'>
                           
                           <div className='flex flex-col items-center mb-5'>
@@ -190,7 +205,7 @@ export default function Movement() {
             {/* Column 2 */}
             <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center p-5 md:w-1/2'>
         
-              <h4 className='mb-3'>Ask one of our sleeping experts</h4>
+              <h4 className='mb-3'>Ask one of our Movement experts</h4>
        
               <img className='my-5' src={movementCoachGif} width={200} height={200}/>
               <div>
