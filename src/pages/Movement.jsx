@@ -12,7 +12,7 @@ import eyeoff from '../assets/eye-off.svg'
 import send from '../assets/send.svg'
 import movementCoach from '../assets/movementCoach.mp4'
 import movementCoachGif from '../assets/movementCoach-unscreen3.gif'
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, setDoc, doc } from "firebase/firestore";
 import { getDocs } from "firebase/firestore"; 
 import {db} from '../firebaseConfig';
 import {useAuthContext} from '../components/AuthContext'
@@ -52,87 +52,70 @@ export default function Movement() {
   async function handleClick(event){
     console.log(event.target.id)
     setIsSurveyAvailable(false)
-    
+    console.log(movement)
     // setMovement(prevMovement => {
-      let newStreak = movement.streak + 1
-         
-      let newCheckIns = [...movement.checkIns, event.target.id]
+    let newStreak = movement.streak + 1
+    
+    let newCheckIns = [...movement.checkIns, event.target.id]
       
-      let total = 0
-      newCheckIns.forEach((check) => {
+    let total = 0
+    newCheckIns.forEach((check) => {
         total = total + parseInt(check)
-      })
+    })
     
-      let newAverage = total / newStreak
+    let newAverage = total / newStreak
 
-      if (movement.streak === 0){
-        try {
-          const docRef = await addDoc(collection(db, "data"), {
-            ...movement,
-              user: currentUser.email,
-              streak: newStreak,
-              checkIns: newCheckIns,
-              lastCheck: new Date(),
-              average: newAverage,
-            }
-          )}
-        catch (error) {
+    let newAverageFormatted = newAverage.toFixed(2)
+
+    try {
+          // Assuming 'user.email' is the email and 'element' is the element you want to use in the document ID
+          let element = 'movement'
+          let mail = currentUser.email
+          const documentRef = doc(db, 'data', `${mail}_${element}`);
+
+           // Data you want to set or update
+          const dataToUpdate = {
+            element: element,
+            user: mail,
+            streak: newStreak,
+            checkIns: newCheckIns,
+            lastCheck: new Date(),
+            average: newAverageFormatted,
+        
+          };
+          await setDoc(documentRef, dataToUpdate);
+    }
+    catch (error) {
           console.log(error.message)
-        }
-      // return {...prevMovement,
-      //         user: currentUser.email,
-      //         streak: newStreak,
-      //         checkIns: newCheckIns,
-      //         lastCheck: new Date(),
-      //         average: newAverage
-      // }
-    // })
+    }
+
       }
-  }
-
-  // React.useEffect(() => {
-    
-  //   async function setData() {
-  //     try {
-  //     const docRef = await addDoc(collection(db, "data"), {
-  //       movement
-  //     })
-  //   }
-  //   catch (error) {
-  //     console.log(error.message)
-  //   }
-  //   finally {
-  //     console.log(movement)
-  //   }}
   
-  //   setData()
-  // }, [movement])
-
-  // React.useEffect(() => {
-  //   console.log('inside second useeffect')
-  //   async function getData() {
-  //   const querySnapshot = await getDocs(collection(db, "data"));
-  //   const newData = querySnapshot.docs.map((doc) => {
-  //     return {...doc.data(), id:doc.id}
-  //   })
-  //     console.log(newData)
-  //     const personalData = newData.filter((data) => {
-  //       return data.movement.user === currentUser?.email
-  //     })
-  //     console.log(personalData)
-  //   }
-  //   getData()
-  // },[])
-
+    
+  // Code to keep DB insync with state used in component, if nothing in db yet, set Movement state with empty values
   React.useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "data"), (querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+      console.log(newData)
       const personalData = newData.filter((data) => {
-        return data.movement.user === currentUser?.email
+        return data.user === currentUser?.email
       })
       console.log(personalData)
-      setMovement(personalData[0])
+      if (personalData.length !== 0)
+      {
+        console.log('inside there is data')
+        setMovement(personalData[0])
       }
+      else {
+      setMovement({
+        element: 'movement',
+        user: `${currentUser.email}`,
+        streak: 0,
+        checkIns: [],
+        lastCheck: '',
+        average: 0,
+      })
+      }}
     )
 
     return () => {
@@ -174,10 +157,10 @@ export default function Movement() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Current Streak in days</h4>
-                    <p className='font-black text-5xl fade-in '>4</p></div>
+                    <p className='font-black text-5xl fade-in '>{movement ? movement.streak : '0'}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Average Sleep</h4>
-                    <p className='font-black text-5xl fade-in'>4.5</p>
+                    <p className='font-black text-5xl fade-in'>{movement ? movement.average : '0'}</p>
                   </div>
                 
                 </div>

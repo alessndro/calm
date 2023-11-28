@@ -2,11 +2,13 @@ import React from 'react'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebaseConfig.jsx'
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../components/AuthContext.jsx';
 
 export default function Signup() {
 
     const [user, setUser] = React.useState({username: '', password: '', password1: ''})
     const [error, setError] = React.useState('')
+    const [loading, setLoading] = React.useState(false)
     const navigate = useNavigate()
     
     const {signUp} = useAuthContext()
