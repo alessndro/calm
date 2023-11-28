@@ -26,7 +26,20 @@ export default function Dashboard() {
     </div>
   })
 
-
+  React.useEffect(() => {
+    async function fetchRecommendation() {
+      const response = await fetch("https://spectacular-tartufo-1e017e.netlify.app/.netlify/functions/openAI", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: 'the users scores on average 4.0 on sleep with a streak of 2 days.',
+      })
+      const data = await response.json()
+      console.log(data)
+    }
+    fetchRecommendation();
+  }, [])
 
   const {currentUser} = useAuthContext()
   
