@@ -36,7 +36,9 @@ export default function Dashboard() {
         body: 'the users scores on average 4.0 on sleep with a streak of 2 days.',
       })
       const data = await response.json()
+      console.log(data.value)
       console.log(data)
+      return data.value
     }
     fetchRecommendation();
   }, [])
