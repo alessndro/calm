@@ -142,7 +142,7 @@ export default function Dashboard() {
         
         
               <h4 className='mb-3'>Personalized Feedback</h4>
-              {recommendations ? <p className='fade-in max-w-sm'>recommendations</p> : <p className='fade-in max-w-sm'>Hey there 👋! Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
+              {recommendations ? <p className='fade-in max-w-sm'>{recommendations}</p> : <p className='fade-in max-w-sm'>Hey there 👋! Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
 
 Here's a friendly nudge to kickstart your wellness check-ins. Consider assessing your Sleep, Movement, Morning Routine, Nutrition, and Relationships on our platform. Your commitment to self-reflection is the first step toward a healthier, happier you.
 
