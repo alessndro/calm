@@ -11,6 +11,10 @@ export default function Dashboard() {
   const [showCaseElement, setShowCaseElement] = React.useState({element:'Sleep', average: '0'})
   const [badges, setBadges] = React.useState(['newUser'])
   const [recommendations, setRecommendations] = React.useState('')
+
+  const [lowestScore, setLowestScore] = React.useState('')
+  const [highestScore, setHighestScore] = React.useState('')
+  const [totalAverageScore, setTotalAverageScore] = React.useState('')
   
   const achievements = badges.map((badge) => {
     return <div className='flex flex-row items-between gap-10'>
@@ -26,6 +30,38 @@ export default function Dashboard() {
       </div>
     </div>
   })
+    
+  // Code to keep DB insync with state used in component, if nothing in db yet, set Movement state with empty values
+  React.useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "data"), (querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+      console.log(newData)
+      const personalData = newData.filter((data) => {
+        return data.user === currentUser?.email && data.element === 'morning'
+      })
+      console.log(personalData)
+      if (personalData.length !== 0)
+      {
+        console.log('inside there is data')
+        setMorning(personalData[0])
+      }
+      else {
+        setMorning({
+        element: 'morning',
+        user: `${currentUser.email}`,
+        streak: 0,
+        checkIns: [],
+        lastCheck: '',
+        average: 0,
+        })
+      }
+    }
+    )
+
+    return () => {
+      unsubscribe()
+    }
+  }, [])
 
   React.useEffect(() => {
     async function fetchRecommendation() {

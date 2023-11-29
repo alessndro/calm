@@ -108,8 +108,6 @@ export default function Morning() {
   React.useEffect(() => {
     if (morning.lastCheck)
     {
-        console.log('inside React useEffect')
-        console.log(morning.lastCheck)
         // Check if the difference between stored last check in and current time is above 24 hours
         const lastCheckInTime = morning.lastCheck.toDate().getTime()
         const currentTime = new Date().getTime()
