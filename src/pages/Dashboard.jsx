@@ -142,7 +142,7 @@ export default function Dashboard() {
         
         
               <h4 className='mb-3'></h4>
-              {recommendations ? <p className='fade-in max-w-sm'>{recommendations}</p> : <div><p className='fade-in max-w-xl'>Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
+              {recommendations ? <div><p className='fade-in max-w-xl'>{recommendations}</p> <p className='text-sm mt-5'>— The Calm Team</p></div> : <div><p className='fade-in max-w-xl'>Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
 
 Consider assessing your Sleep, Movement, Morning Routine, Nutrition, and Relationships on our platform. Your commitment to self-reflection is the first step toward a healthier, happier you.
 
@@ -219,7 +219,7 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
             </div>
 
             {/* Column 2 */}
-            <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center justify-center p-5 md:w-1/2'>
+            <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
         
         
               <h4 className='mb-3'>Our story</h4>
