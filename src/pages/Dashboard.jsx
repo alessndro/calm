@@ -5,6 +5,10 @@ import wind from '../assets/wind.svg'
 import trendup from '../assets/trending-up.svg'
 import eyeoff from '../assets/eye-off.svg'
 import send from '../assets/send.svg'
+import { collection, addDoc, onSnapshot, setDoc, doc } from "firebase/firestore";
+import { getDocs } from "firebase/firestore"; 
+import {db} from '../firebaseConfig';
+
 export default function Dashboard() {
 
   // When user is logged in showcase, element and average
@@ -35,28 +39,35 @@ export default function Dashboard() {
   React.useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "data"), (querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
-      console.log(newData)
       const personalData = newData.filter((data) => {
-        return data.user === currentUser?.email && data.element === 'morning'
+        return data.user === currentUser?.email
       })
       console.log(personalData)
-      if (personalData.length !== 0)
+      if (personalData.length > 0)
       {
-        console.log('inside there is data')
-        setMorning(personalData[0])
-      }
-      else {
-        setMorning({
-        element: 'morning',
-        user: `${currentUser.email}`,
-        streak: 0,
-        checkIns: [],
-        lastCheck: '',
-        average: 0,
+        console.log('inside if')
+        let totalAverage = 0.00
+        let amountElements = personalData.length
+        let lowestObject = {name: 'lowest', average: 5.00}
+        let highestObject = {name: 'highest', average: 0.00}
+
+        personalData.forEach((arrayItem) => {
+          if (parseInt(arrayItem.average, 10) > highestObject.average)
+          {
+              highestObject = arrayItem
+          }
+          if (parseInt(arrayItem.average, 10) < lowestObject.average)
+          {
+              lowestObject = arrayItem
+          }
+          totalAverage = totalAverage + parseInt(arrayItem.average, 10)
         })
+        setLowestScore(lowestObject)
+        setHighestScore(highestObject)
+        setTotalAverageScore((totalAverage / amountElements).toFixed(2))
       }
-    }
-    )
+        
+    })
 
     return () => {
       unsubscribe()
@@ -76,7 +87,7 @@ export default function Dashboard() {
       setRecommendations(data.value)
     }
     fetchRecommendation();
-  }, [])
+  }, [lowestScore])
 
   const {currentUser} = useAuthContext()
   
@@ -107,10 +118,11 @@ export default function Dashboard() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Totale Average Score</h4>
-                    <p className='font-black text-5xl fade-in '>0</p></div>
+                    <p className='font-black text-5xl fade-in '>{totalAverageScore ? totalAverageScore : 0}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
-                    <h4 className='mb-5'>Highest Current streak</h4>
-                    <p className='font-black text-5xl fade-in'>0</p>
+                    <h4 className='mb-2'>Highest Score</h4>
+                    <p className='text-gray-800 fade-in mb-3'>{highestScore.element ? highestScore.element : "Sleep"}</p>
+                    <p className='font-black text-5xl fade-in'>{highestScore.average ? highestScore.average : 0}</p>
                   </div>
                 
                 </div>
