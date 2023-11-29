@@ -109,7 +109,7 @@ export default function Dashboard() {
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
             
             <p className='text-center max-w-md mb-5 fade-in '>"The same soil is good for men and for trees. A man's health requires as many acres of meadow to his prospect as his farm does loads of muck."</p>
-              <h4 className='text-sm'>— Henry David Thoreau</h4>
+              <p className='text-sm'>— Henry David Thoreau</p>
             </div>
           </div>
 
@@ -138,15 +138,15 @@ export default function Dashboard() {
             </div>
 
             {/* Column 2 */}
-            <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center justify-center p-5 md:w-1/2'>
+            <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
         
         
-              <h4 className='mb-3'>Personalized Feedback</h4>
-              {recommendations ? <p className='fade-in max-w-sm'>{recommendations}</p> : <p className='fade-in max-w-sm'>Hey there 👋! Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
+              <h4 className='mb-3'></h4>
+              {recommendations ? <p className='fade-in max-w-sm'>{recommendations}</p> : <div><p className='fade-in max-w-xl'>Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
 
-Here's a friendly nudge to kickstart your wellness check-ins. Consider assessing your Sleep, Movement, Morning Routine, Nutrition, and Relationships on our platform. Your commitment to self-reflection is the first step toward a healthier, happier you.
+Consider assessing your Sleep, Movement, Morning Routine, Nutrition, and Relationships on our platform. Your commitment to self-reflection is the first step toward a healthier, happier you.
 
-Your well-being is a unique journey, and Calm is here to help you every step of the way 🚀.</p> }
+Your well-being is a unique journey, and Calm is here to help you every step of the way 🚀.</p>  <p className='text-sm mt-5'>— The Calm Team</p> </div>}
               <p className='absolute bottom-2 right-5 font-black'>POWERED BY AI</p>
       
             

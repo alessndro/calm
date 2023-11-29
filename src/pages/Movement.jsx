@@ -205,7 +205,7 @@ export default function Movement() {
             {/* Column 2 */}
             <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center p-5 md:w-1/2'>
         
-              <h4 className='mb-3'>Ask one of our Movement experts</h4>
+              <h4 className='mt-10 mb-5'>Ask one of our Movement experts</h4>
        
               <img className='my-5' src={movementCoachGif} width={200} height={200}/>
               <div>

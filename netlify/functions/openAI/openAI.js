@@ -20,8 +20,6 @@ const handler = async (event) => {
       The user scores the lowest on Relationships with a score of 2.0.
       
       Recommendations: 
-      Hi there!
-
       Thank you for checking in today. Great Job on Sleep! Your dedication to Sleep is truly paying off with an average of 4.5. Keep up the fantastic work! 🎉 After reviewing your scores, I noticed that Relationships has room for improvement. Remember, we're not aiming for perfection here, just progress. Now, let's focus on boosting Relationships. Andrew Huberman suggests that small, consistent changes make a big impact. Consider incorporating Calling a friend more often into your routine for an extra boost. For instance, Set a reminder every week to call your best friend. Remember, progress over perfection! 🚀
       
       Keep shining! ✨
