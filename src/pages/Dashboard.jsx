@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [lowestScore, setLowestScore] = React.useState('')
   const [highestScore, setHighestScore] = React.useState('')
   const [totalAverageScore, setTotalAverageScore] = React.useState('')
+  const [showCaseRecom, setShowCaseRecom] = React.useState(false)
   
   const achievements = badges.map((badge) => {
     return <div className='flex flex-row items-between gap-10'>
@@ -62,6 +63,7 @@ export default function Dashboard() {
           }
           totalAverage = totalAverage + parseInt(arrayItem.average, 10)
         })
+        setShowCaseRecom(true)
         setLowestScore(lowestObject)
         setHighestScore(highestObject)
         setTotalAverageScore((totalAverage / amountElements).toFixed(2))
@@ -75,7 +77,8 @@ export default function Dashboard() {
   }, [])
 
   React.useEffect(() => {
-    async function fetchRecommendation() {
+    if (setShowCaseRecom) { 
+      async function fetchRecommendation() {
       const response = await fetch("https://spectacular-tartufo-1e017e.netlify.app/.netlify/functions/openAI", {
         method: 'POST',
         headers: {
@@ -87,7 +90,7 @@ export default function Dashboard() {
       const data = await response.json()
       setRecommendations(data.value)
     }
-    fetchRecommendation();
+    fetchRecommendation();}
   }, [lowestScore])
 
   const {currentUser} = useAuthContext()

@@ -12,7 +12,7 @@ const handler = async (event) => {
     const response = await openai.completions.create({
       model:'text-davinci-003',
       prompt: `You are a health coach on Calm, a Health platform. A user has checked in today, and you want to provide them with supportive, pragmatic, and nice feedback. 
-      Begin by thanking the user for checking in. Acknowledge and compliment the user's highest scoring element, providing positive reinforcement. 
+      Begin by thanking the user for checking in. Acknowledge and compliment the user's highest scoring element, providing positive reinforcement.
       Then, address the lowest scoring element, offering practical and science-based advice inspired by Andrew Huberman. Ensure the tone remains motivational and supportive, encouraging the user on their wellness journey. 
       End the feedback by expressing your availability for any questions or further support."
 
@@ -22,14 +22,8 @@ const handler = async (event) => {
       Recommendations: 
       Hi there!
 
-      Thank you for checking in today. 
-
-      Great Job on Sleep! Your dedication to Sleep is truly paying off with an average of 4.5. Keep up the fantastic work! 🎉
+      Thank you for checking in today. Great Job on Sleep! Your dedication to Sleep is truly paying off with an average of 4.5. Keep up the fantastic work! 🎉 After reviewing your scores, I noticed that Relationships has room for improvement. Remember, we're not aiming for perfection here, just progress. Now, let's focus on boosting Relationships. Andrew Huberman suggests that small, consistent changes make a big impact. Consider incorporating Calling a friend more often into your routine for an extra boost. For instance, Set a reminder every week to call your best friend. Remember, progress over perfection! 🚀
       
-      After reviewing your scores, I noticed that Relationships has room for improvement. Remember, we're not aiming for perfection here, just progress. 
-
-      Now, let's focus on boosting Relationships. Andrew Huberman suggests that small, consistent changes make a big impact. Consider incorporating Calling a friend more often into your routine for an extra boost. For instance, Set a reminder every week to call your best friend. Remember, progress over perfection! 🚀
-
       Keep shining! ✨
       #########################
       User information: ${event.body}
