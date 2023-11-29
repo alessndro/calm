@@ -77,7 +77,7 @@ export default function Dashboard() {
   }, [])
 
   React.useEffect(() => {
-    if (setShowCaseRecom) { 
+    if (showCaseRecom) { 
       async function fetchRecommendation() {
       const response = await fetch("https://spectacular-tartufo-1e017e.netlify.app/.netlify/functions/openAI", {
         method: 'POST',
