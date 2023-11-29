@@ -81,7 +81,8 @@ export default function Dashboard() {
         headers: {
           'Content-Type': 'text/plain',
         },
-        body: 'the users scores on average 4.0 on sleep with a streak of 2 days.',
+        body: `The user scores highest on ${highestScore.element} with a score of ${highestScore.average}. 
+        The user scores the lowest on ${lowestScore.element} with a score of ${lowestScore.average}`,
       })
       const data = await response.json()
       setRecommendations(data.value)
@@ -117,11 +118,11 @@ export default function Dashboard() {
                 <div className='h-64 gap-3 text-center flex flex-row justify-center items-center'>
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
-                    <h4 className='mb-5'>Totale Average Score</h4>
+                    <h4 className='mb-5'>Totale Health Score</h4>
                     <p className='font-black text-5xl fade-in '>{totalAverageScore ? totalAverageScore : 0}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-2'>Highest Score</h4>
-                    <p className='text-gray-800 fade-in mb-3'>{highestScore.element ? highestScore.element : "Sleep"}</p>
+                    <p className='text-gray-800 fade-in mb-3'>{highestScore.element ? highestScore.element : ""}</p>
                     <p className='font-black text-5xl fade-in'>{highestScore.average ? highestScore.average : 0}</p>
                   </div>
                 
@@ -231,104 +232,5 @@ export default function Dashboard() {
     </div>
     )
   }
-  
-  return (<>
-    {!currentUser ? <div className='p-10 w-full bg-gray-50 xl:px-20 3xl:px-40'>
-      {/* First row, with 2 sections, welcome message and active users */}
-      <div className='flex flex-col gap-10 mb-10 md:flex-row md:justify-around'>
 
-          <div className='text-center flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-            <h4 className='text-md'>Welcome to Calm.</h4>
-            <h4 className='text-md fade-in'>Your simple and effective Health Dashboard</h4>
-          </div>
-
-          <div className='text-center bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl p-6'>
-            <h4 className='mb-5'>Active users</h4>
-            <p className='font-black text-5xl fade-in'>1000+</p>
-          </div>
-      </div>
-
-       {/* Second row, with 2 sections, our story and Why Calm? */}
-       <div className='flex flex-col gap-10 mb-10 md:flex-row md:justify-around'>
-
-          <div className='bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-            <h4 className='mb-5'>Our story</h4>
-            <p className='text-sm text-center max-w-md fade-in '>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
-          </div>
-
-          <div className='text-center bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl p-6'>
-            <h4 className='mb-5'>Why use Calm?</h4>
-            <p className='text-sm text-center max-w-md fade-in '>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effcetive, and science-based solution for holistic wellbeing.</p>
-            <div>
-              
-            </div>
-          </div>
-      </div>
-
-       {/* Third row, with 2 sections, testimonials and Qoute */}
-       <div className='flex flex-col gap-10 mb-10 md:flex-row md:justify-around'>
-
-        <div className='text-center bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-            <h4 className='mb-5'>Testimonials</h4>
-            <p className='text-sm text-center max-w-md fade-in '>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effcetive, and science-based solution for holistic wellbeing.</p>
-          </div>
-      
-
-          <div className='flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-            <h4 className='text-center max-w-md mb-5 fade-in '>"The same soil is good for men and for trees. A man's health requires as many acres of meadow to his prospect as his farm does loads of muck."</h4>
-            <h4 className='text-sm'>— Henry David Thoreau</h4>
-          </div>
-      </div>
-
-    </div> : 
-    <div className='p-10 w-full bg-gray-50 xl:px-20 3xl:px-40'>
-    {/* First row, with 2 sections, welcome message and active users */}
-    <div className='flex flex-col gap-10 mb-10 md:flex-row md:justify-around'>
-
-        <div className='text-center flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-          <h4 className='text-md'>Welcome back, {currentUser.email} 🚀</h4>
-          <h4 className='text-md fade-in '>Good to see you again!</h4>
-        </div>
-
-        <div className='text-center bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl p-6'>
-          <h4 className='mb-5'>{showCaseElement.element}</h4>
-          <p className='font-black text-5xl fade-in '>{showCaseElement.average}</p>
-        </div>
-    </div>
-
-     {/* Second row, with 2 sections, our story and Why Calm? */}
-     <div className='flex flex-col gap-10 mb-10 md:flex-row md:justify-around'>
-
-        <div className='bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-          <h4 className='mb-5'>Total Health score</h4>
-          <p className='font-black text-5xl fade-in '>4.6</p>
-        </div>
-
-        <div className='text-center bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl p-6'>
-          <h4 className='mb-5'>Recommendations</h4>
-          <p className='text-sm text-center max-w-md overflow-y-auto h-28 fade-in '>Hi there! You've been scoring well on sleep Good job! You're movement could be better. You could consider a morning routine before you go to work or study. There are certain elments that you should have considered before, such as night life ine amsterdam. You have cat. but what if you dont you know? there are so many options to dit it. But what now? Focus on these steps and you will make it men</p>
-          <div>
-            
-          </div>
-        </div>
-    </div>
-
-     {/* Third row, with 2 sections, testimonials and Qoute */}
-     <div className='flex flex-col gap-10 mb-10 md:flex-row md:justify-around'>
-
-      <div className='text-center bg-gray-100 flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-          <h4 className='mb-5'>Achievements</h4>
-          <div className='fade-in '>{achievements}</div>
-        </div>
-    
-
-        <div className='flex flex-col justify-center items-center md:w-1/2 max-w-xl px-6 py-16'>
-          <h4 className='text-center max-w-md mb-5 fade-in '>"The same soil is good for men and for trees. A man's health requires as many acres of meadow to his prospect as his farm does loads of muck."</h4>
-          <h4 className='text-sm'>— Henry David Thoreau</h4>
-        </div>
-    </div>
-
-  </div>  }
-  </>
-  )
 }
