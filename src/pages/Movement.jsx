@@ -5,6 +5,8 @@ import moon3 from '../assets/calmmoon3.png'
 import moon4 from '../assets/calmmoon4.png'
 import moon5 from '../assets/calmmoon5.png'
 import check from '../assets/check.svg'
+import shuffle from '../assets/shuffle.svg'
+import settings from '../assets/settings.svg'
 
 import wind from '../assets/wind.svg'
 import trendup from '../assets/trending-up.svg'
@@ -146,7 +148,7 @@ export default function Movement() {
             {isSurveyAvailable ? <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-5 md:w-1/3'>
               <h4 className='text-md mb-2'>Today's Check in</h4>
               <p className='text-sm'>How would you rate your Movement?</p>
-              <div onClick={handleClick} className='flex flex-row mt-5 gap-10 fade-in'>
+              <div onClick={handleClick} className='flex flex-row mt-5 gap-10'>
                 <div id="1" className=''><img id="1" className='' src={moon1} width={30} height={30}/></div>
                 <div id="2" className=''><img id="2" className='' src={moon2} width={30} height={30}/></div>
                 <div id="3" className=''><img id="3" className='' src={moon3} width={30} height={30}/></div>
@@ -159,7 +161,8 @@ export default function Movement() {
               <img className='mt-5 fade-in' src={check} width={30} height={30}/>
             </div>}
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
-                B
+              <p className='text-center max-w-md mb-5'>"We’ve all known people who, like monkeys, mimic whatever seems novel and flashy at the moment. But then their enthusiasm and efforts wane; they drop their projects as soon as they become too familiar or demanding."</p>
+              <p className='text-sm'>— Epictetus</p>
             </div>
           </div>
 
@@ -172,10 +175,10 @@ export default function Movement() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Current Streak in days</h4>
-                    <p className='font-black text-5xl fade-in '>{movement ? movement.streak : '0'}</p></div>
+                    <p className='font-black text-5xl'>{movement ? movement.streak : '0'}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Average Score</h4>
-                    <p className='font-black text-5xl fade-in'>{movement ? movement.average : '0'}</p>
+                    <p className='font-black text-5xl'>{movement ? movement.average : '0'}</p>
                   </div>
                 
                 </div>
@@ -190,13 +193,13 @@ export default function Movement() {
                           </div>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={eyeoff} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Screen time</p>
+                            <img className='' src={shuffle} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Variety</p>
                           </div>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={wind} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Breathing</p>
+                            <img className='' src={settings} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Adaptability</p>
                           </div>
                       </div>
                 </div>
@@ -210,7 +213,7 @@ export default function Movement() {
               <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Alex, Calm's sleeping expert 👋</p> <p className='text-start'>Ask me anything!</p></div>
+                  <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Freddie, Calm's Movement expert 👋</p> <p className='text-start'>Ask me anything!</p></div>
                   
                 </div>
                 <div className='mb-20'></div>

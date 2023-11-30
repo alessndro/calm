@@ -20,6 +20,9 @@ export default function Dashboard() {
   const [highestScore, setHighestScore] = React.useState('')
   const [totalAverageScore, setTotalAverageScore] = React.useState('')
   const [showCaseRecom, setShowCaseRecom] = React.useState(false)
+
+  const [testimonials, setTestimonials] = React.useState([{name: 'Alex M. 28' , text: `Being a busy professional, I needed a health solution that didn't add more complexity to my life. Calm has been a game-changer. The intuitive design and seamless navigation make it easy to incorporate biohacking practices into my daily routine`}, {name: 'Emma H. 34' , text:`Calm has transformed the way I approach my health journey. The simplicity of the platform allows me to focus on what truly matters—the five key pillars. The biohacking insights, inspired by Andrew Huberman, have been eye-opening.`}, {name: 'David S. 43',text: `As someone who has tried numerous health apps, Calm stands out for its holistic approach. The five key pillars provide a structured and balanced path to well-being. Calm has become my go-to dashboard for tracking progress and staying motivated on my health journey.` }])
+  const [showcaseTestimonial, setShowcaseTestimonial] = React.useState({})
   
   const achievements = badges.map((badge) => {
     return <div className='flex flex-row items-between gap-10'>
@@ -34,6 +37,11 @@ export default function Dashboard() {
         <h3></h3>
       </div>
     </div>
+  })
+
+  React.useEffect(() => {
+      const randomIndex = Math.floor(Math.random() * 3);
+      setShowcaseTestimonial(testimonials[randomIndex])
   })
     
   // Code to keep DB insync with state used in component, if nothing in db yet, set Movement state with empty values
@@ -104,12 +112,12 @@ export default function Dashboard() {
           <div className='flex flex-col  md:flex-row gap-3 mb-3'>
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-5 md:w-1/3'>
               <h4 className='text-md'>Welcome back, {currentUser.email} 🚀</h4>
-              <p className='text-md fade-in '>Good to see you again!</p>
+              <p className='text-md'>Good to see you again!</p>
             </div>
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
             
-            <p className='text-center max-w-md mb-5 fade-in '>"The same soil is good for men and for trees. A man's health requires as many acres of meadow to his prospect as his farm does loads of muck."</p>
-              <p className='text-sm'>— Henry David Thoreau</p>
+            <p className='text-center max-w-md mb-5'>"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth"</p>
+              <p className='text-sm'>— Marcus Aurelius</p>
             </div>
           </div>
 
@@ -122,27 +130,27 @@ export default function Dashboard() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Totale Health Score</h4>
-                    <p className='font-black text-5xl fade-in '>{totalAverageScore ? totalAverageScore : 0}</p></div>
+                    <p className='font-black text-5xl '>{totalAverageScore ? totalAverageScore : 0}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-2'>Highest Score</h4>
-                    <p className='text-gray-800 fade-in mb-3'>{highestScore.element ? highestScore.element : ""}</p>
-                    <p className='font-black text-5xl fade-in'>{highestScore.average ? highestScore.average : 0}</p>
+                    <p className='text-gray-800 mb-3'>{highestScore.element ? highestScore.element : ""}</p>
+                    <p className='font-black text-5xl'>{highestScore.average ? highestScore.average : 0}</p>
                   </div>
                 
                 </div>
 
                 <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-5 items-center mt-3'>
                   <h4 className='mb-5'>Achievements</h4>
-                  <div className='fade-in '>{achievements}</div>
+                  <div className=''>{achievements}</div>
                 </div>
             </div>
 
             {/* Column 2 */}
-            <div className='h-100  bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
+            <div className='relative h-100  bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
         
         
               <h4 className='mb-3'></h4>
-              {recommendations ? <div><p className='fade-in max-w-xl'>{recommendations}</p> <p className='text-sm mt-5'>— The Calm Team</p></div> : <div><p className='fade-in max-w-xl'>Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
+              {recommendations ? <div><p className='max-w-xl'>{recommendations}</p> <p className='text-sm mt-5'>— The Calm Team</p></div> : <div><p className='max-w-xl'>Thank you for choosing Calm to embark on your well-being journey. While you haven't logged any scores yet, every small step matters.
 
 Consider assessing your Sleep, Movement, Morning Routine, Nutrition, and Relationships on our platform. Your commitment to self-reflection is the first step toward a healthier, happier you.
 
@@ -171,11 +179,11 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
           <div className='flex flex-col  md:flex-row gap-3 mb-3'>
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-10 md:w-1/3'>
               <h4 className='text-md'>Welcome to Calm.</h4>
-              <h4 className='text-md'>Your simple and effective Health Dashboard</h4>
+              <p className='text-md'>Your simple and effective Health Dashboard</p>
             </div>
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-10 items-center md:w-2/3'>
             <h4 className='mb-5'>Why use Calm?</h4>
-            <p className='text-sm text-center max-w-xl'>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
+            <p className='text-center max-w-xl'>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
             </div>
           </div>
 
@@ -188,42 +196,27 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Verified reviews</h4>
-                    <p className='font-black md:text-5xl text-2xl '>1000+</p></div>
+                    <p className='font-black md:text-5xl text-2xl '>800+</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Active Users</h4>
-                    <p className='font-black md:text-5xl text-2xl'>10000+</p>
+                    <p className='font-black md:text-5xl text-2xl'>6000+</p>
                   </div>
                 
                 </div>
 
                 <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-10 items-center mt-3'>
                       <h4 className='mb-5'>Testimonials</h4>
-                      <div className='flex flex-row items-between gap-10 xl:gap-20'>
-                          
-                          <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={trendup} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Consistency</p>
-                          </div>
-                          
-                          <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={eyeoff} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Screen time</p>
-                          </div>
-                          
-                          <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={wind} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Breathing</p>
-                          </div>
-                      </div>
+                      <p className='text-center max-w-md mb-5'>{showcaseTestimonial.text}</p>
+                      <p className='text-sm'>- {showcaseTestimonial.name}</p>
                 </div>
             </div>
 
             {/* Column 2 */}
             <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
         
-        
-              <h4 className='mb-3'>Our story</h4>
-              <p className='max-w-xl'>Welcome to Calm—a wellness hub driven by self-improvement and biohacking. Inspired by neuroscientist Andrew Huberman, our platform simplifies optimal living. More than an app, Calm is your modern lifestyle companion, designed for accessible well-being. We value simplicity, offering a seamless, modern design. Recognizing the multifaceted nature of health, we focus on five key pillars for a straightforward path to a healthier you.</p>
+              <h4 className='mb-5'>Our Story</h4>
+              <p className='max-w-xl'>Welcome to Calm—a health dashboard driven by self-improvement and biohacking. Inspired by neuroscientist Andrew Huberman, our platform simplifies optimal living. We value simplicity, offering a seamless, modern design. Recognizing the multifaceted nature of health, we focus on five key pillars for a straightforward path to a healthier you.</p>
+              <p className='text-sm mt-5'>— The Calm Team</p>
        
       
             

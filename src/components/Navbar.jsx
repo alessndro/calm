@@ -10,6 +10,7 @@ import sleep from '../assets/sunset.svg'
 import morning from '../assets/sunrise.svg'
 import relationships from '../assets/users.svg'
 import { useAuthContext } from '../components/AuthContext.jsx';
+import {NavLink} from 'react-router-dom'
 
 export default function Navbar() {
   const [isMenuShown, setIsMenuShown] = React.useState(false)
@@ -19,6 +20,11 @@ export default function Navbar() {
 
   function handleToggle() {
     setIsMenuShown(prevState => !prevState)
+  }
+
+  const activeStyle = {
+    fontWeight: 'bold',
+    // textDecoration: 'underline',
   }
 
   async function handleLogOut() {
@@ -39,13 +45,12 @@ export default function Navbar() {
         <Link to="/"><h3 className='font-black text-2xl md:text-3xl'>Calm.</h3></Link>
             
             <div className='hidden gap-2 ml-10 md:gap-4 md:ml-0 md:mt-20 flex-row sm:flex md:flex-col'>
-              <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><Link to="/"><p className='text-sm 3xl:text-lg'>Dashboard</p></Link></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={sleep} width={20} height={20}/><Link to="sleep"><p className='text-sm 3xl:text-lg'>Sleep</p></Link></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={movement} width={20} height={20}/><Link to="movement"><p className='text-sm 3xl:text-lg'>Movement</p></Link></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={morning} width={20} height={20}/><Link to="morning"><p className='text-sm 3xl:text-lg'>Morning</p></Link></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={nutrition} width={20} height={20}/><Link to="nutrition"><p className='text-sm 3xl:text-lg'>Nutrition</p></Link></div>
-              <div className='flex'><img className='hidden md:flex mr-4' src={relationships} width={20} height={20}/><Link to="relationships"><p className='text-sm 3xl:text-lg'>Relationships</p></Link></div>
-
+              <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><NavLink style={({isActive}) => isActive ? activeStyle : null} to="/"><p className='text-sm 3xl:text-lg'>Dashboard</p></NavLink></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={sleep} width={20} height={20}/><NavLink style={({isActive}) => isActive ? activeStyle : null} to="sleep"><p className='text-sm 3xl:text-lg'>Sleep</p></NavLink></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={movement} width={20} height={20}/><NavLink style={({isActive}) => isActive ? activeStyle : null} to="movement"><p className='text-sm 3xl:text-lg'>Movement</p></NavLink></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={morning} width={20} height={20}/><NavLink style={({isActive}) => isActive ? activeStyle : null} to="morning"><p className='text-sm 3xl:text-lg'>Morning</p></NavLink></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={nutrition} width={20} height={20}/><NavLink style={({isActive}) => isActive ? activeStyle : null} to="nutrition"><p className='text-sm 3xl:text-lg'>Nutrition</p></NavLink></div>
+              <div className='flex'><img className='hidden md:flex mr-4' src={relationships} width={20} height={20}/><NavLink style={({isActive}) => isActive ? activeStyle : null} to="relationships"><p className='text-sm 3xl:text-lg'>Relationships</p></NavLink></div>
             </div>
         </div>
     
@@ -61,12 +66,13 @@ export default function Navbar() {
      {
       isMenuShown && <div>
           <div className='absolute  w-full top-15 p-5 bg-white flex justify-center gap-2 flex-col sm:hidden'>
-            <Link to="/"><p className='text-md'>Dashboard</p></Link>
-            <Link to="sleep"><p className='text-md'>Sleep</p></Link>
-            <Link to="movement"><p className='text-md'>Movement</p></Link>
-            <Link to="morning"><p className='text-md'>Morning</p></Link>
-            <Link to="nutrition"><p className='text-md'>Nutrition</p></Link>
-            <Link to="relationships"><p className='text-md'>Relationships</p></Link>
+            <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="/"><p className='text-md'>Dashboard</p></NavLink>
+            <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="sleep"><p className='text-md'>Sleep</p></NavLink>
+            <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="movement"><p className='text-md'>Movement</p></NavLink>
+            <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="morning"><p className='text-md'>Morning</p></NavLink>
+            <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="nutrition"><p className='text-md'>Nutrition</p></NavLink>
+            <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="relationships"><p className='text-md'>Relationships</p></NavLink>
+            
           </div>
         </div>
      }

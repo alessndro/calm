@@ -5,6 +5,9 @@ import moon3 from '../assets/calmmoon3.png'
 import moon4 from '../assets/calmmoon4.png'
 import moon5 from '../assets/calmmoon5.png'
 import check from '../assets/check.svg'
+import activity from '../assets/activity.svg'
+import checkCircle from '../assets/check-circle.svg'
+import drop from '../assets/droplet.svg'
 
 import wind from '../assets/wind.svg'
 import trendup from '../assets/trending-up.svg'
@@ -142,7 +145,7 @@ export default function Nutrition() {
             {isSurveyAvailable ? <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-5 md:w-1/3'>
               <h4 className='text-md mb-2'>Today's Check in</h4>
               <p className='text-sm'>How would you rate your Nutrition?</p>
-              <div onClick={handleClick} className='flex flex-row mt-5 gap-10 fade-in'>
+              <div onClick={handleClick} className='flex flex-row mt-5 gap-10'>
                 <div id="1" className=''><img id="1" className='' src={moon1} width={30} height={30}/></div>
                 <div id="2" className=''><img id="2" className='' src={moon2} width={30} height={30}/></div>
                 <div id="3" className=''><img id="3" className='' src={moon3} width={30} height={30}/></div>
@@ -155,7 +158,8 @@ export default function Nutrition() {
               <img className='mt-5 fade-in' src={check} width={30} height={30}/>
             </div>}
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
-                B
+                <p className='text-center max-w-md mb-5'>"Preach not to others what they should eat, but eat as becomes you and be silent."</p>
+                <p className='text-sm'>— Epictetus</p>
             </div>
           </div>
 
@@ -168,10 +172,10 @@ export default function Nutrition() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Current Streak in days</h4>
-                    <p className='font-black text-5xl fade-in '>{nutrition ? nutrition.streak : '0'}</p></div>
+                    <p className='font-black text-5xl '>{nutrition ? nutrition.streak : '0'}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Average Score</h4>
-                    <p className='font-black text-5xl fade-in'>{nutrition ? nutrition.average : '0'}</p>
+                    <p className='font-black text-5xl'>{nutrition ? nutrition.average : '0'}</p>
                   </div>
                 
                 </div>
@@ -181,18 +185,18 @@ export default function Nutrition() {
                       <div className='flex flex-row items-between gap-10 xl:gap-20'>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={trendup} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Consistency</p>
+                            <img className='' src={checkCircle} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Unprocessed foods</p>
                           </div>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={eyeoff} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Screen time</p>
+                            <img className='' src={activity} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Balance</p>
                           </div>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={wind} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Breathing</p>
+                            <img className='' src={drop} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Hydratation</p>
                           </div>
                       </div>
                 </div>

@@ -31,7 +31,30 @@ export default function Sleep() {
 
   const [isSurveyAvailable, setIsSurveyAvailable] = React.useState(true)
   const {currentUser} = useAuthContext()
+  const [userInput, setUserInput] = React.useState('')
 
+  console.log(userInput)
+
+  function handleChange(event){
+    setUserInput(event.target.value)
+  }
+
+  async function handleSubmit(event){
+    event.preventDefault()
+    async function fetchFeedback() {
+      const response = await fetch("https://spectacular-tartufo-1e017e.netlify.app/.netlify/functions/fetchFeedback", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: `${userInput}`,
+      })
+      const data = await response.json()
+      setRecommendations(data.value)
+    }
+    fetchFeedback()
+  }
+  
   async function handleClick(event){
     console.log(event.target.id)
     setIsSurveyAvailable(false)
@@ -120,8 +143,6 @@ export default function Sleep() {
 
         const twentyFourHours = 24 * 60 * 60 * 1000
         
-        console.log(timeDifference)
-        console.log(twentyFourHours)
         if (timeDifference > twentyFourHours){
             setIsSurveyAvailable(true)
         }
@@ -144,7 +165,7 @@ export default function Sleep() {
             {isSurveyAvailable ? <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-5 md:w-1/3'>
               <h4 className='text-md mb-2'>Today's Check in</h4>
               <p className='text-sm'>How would you rate your Sleep?</p>
-              <div onClick={handleClick} className='flex flex-row mt-5 gap-10 fade-in'>
+              <div onClick={handleClick} className='flex flex-row mt-5 gap-10 '>
                 <div id="1" className=''><img id="1" className='' src={moon1} width={30} height={30}/></div>
                 <div id="2" className=''><img id="2" className='' src={moon2} width={30} height={30}/></div>
                 <div id="3" className=''><img id="3" className='' src={moon3} width={30} height={30}/></div>
@@ -157,7 +178,8 @@ export default function Sleep() {
               <img className='mt-5 fade-in' src={check} width={30} height={30}/>
             </div>}
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
-                B
+              <p className='text-center max-w-md mb-5'>"Eat well and sleep well. That will feed your nervous system and your psyche. As you get older, you look how you feel."</p>
+              <p className='text-sm'>— Francesca Annis</p>
             </div>
           </div>
 
@@ -170,10 +192,10 @@ export default function Sleep() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Current Streak in days</h4>
-                    <p className='font-black text-5xl fade-in '>{sleep ? sleep.streak : '0'}</p></div>
+                    <p className='font-black text-5xl  '>{sleep ? sleep.streak : '0'}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Average Score</h4>
-                    <p className='font-black text-5xl fade-in'>{sleep ? sleep.average : '0'}</p>
+                    <p className='font-black text-5xl '>{sleep ? sleep.average : '0'}</p>
                   </div>
                 
                 </div>
@@ -213,8 +235,10 @@ export default function Sleep() {
                 </div>
                 <div className='mb-20'></div>
                 <div className='flex mb-5 py-3 px-5 bg-white rounded-full justify-between max-w-xl'>
-                  <input className='ml-3 outline-none' type='text' placeholder='type a message..' />
+                <form onSubmit={handleSubmit} className='flex justify-between w-full'>
+                  <input className='ml-3 outline-none' type='text' placeholder='type a message..' value={userInput} onChange={handleChange}/>
                   <img className='' src={send} width={25} height={25}/>
+                </form>
                 </div>
               </div>
               <div>

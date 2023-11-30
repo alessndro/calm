@@ -5,6 +5,9 @@ import moon3 from '../assets/calmmoon3.png'
 import moon4 from '../assets/calmmoon4.png'
 import moon5 from '../assets/calmmoon5.png'
 import check from '../assets/check.svg'
+import phone from '../assets/phone.svg'
+import link from '../assets/link.svg'
+import user from '../assets/user.svg'
 
 import wind from '../assets/wind.svg'
 import trendup from '../assets/trending-up.svg'
@@ -155,7 +158,8 @@ export default function Relationships() {
               <img className='mt-5 fade-in' src={check} width={30} height={30}/>
             </div>}
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
-                B
+                <p className='text-center max-w-md mb-5'>"Accept the things to which fate binds you, and love the people with whom fate brings you together, but do so with all your heart.”</p>
+                <p className='text-sm'>— Marcus Aurelius</p>
             </div>
           </div>
 
@@ -181,18 +185,18 @@ export default function Relationships() {
                       <div className='flex flex-row items-between gap-10 xl:gap-20'>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={trendup} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Consistency</p>
+                            <img className='' src={user} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Self</p>
                           </div>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={eyeoff} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Screen time</p>
+                            <img className='' src={link} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Connection</p>
                           </div>
                           
                           <div className='flex flex-col items-center mb-5'>
-                            <img className='' src={wind} width={30} height={30}/>
-                            <p className='text-sm mt-3'>Breathing</p>
+                            <img className='' src={phone} width={30} height={30}/>
+                            <p className='text-sm mt-3'>Communication</p>
                           </div>
                       </div>
                 </div>

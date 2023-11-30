@@ -5,9 +5,9 @@ import Navbar from "./Navbar"
 
 export default function Layout() {
    return (
-       <div className="h-full w-full flex flex-col fade-in z-0 mx-auto md:flex-row">
+       <div className="h-full w-full flex flex-col z-0 mx-auto md:flex-row">
            <Navbar />
-           <Outlet />
+            <Outlet />
        </div>
    )
 }
