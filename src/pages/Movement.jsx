@@ -207,7 +207,7 @@ export default function Movement() {
         
               <h4 className='mt-10 mb-5'>Ask one of our Movement experts</h4>
        
-              <img className='my-5' src={movementCoachGif} width={200} height={200}/>
+              <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
                   <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Alex, Calm's sleeping expert 👋</p> <p className='text-start'>Ask me anything!</p></div>

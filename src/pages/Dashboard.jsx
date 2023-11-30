@@ -138,7 +138,7 @@ export default function Dashboard() {
             </div>
 
             {/* Column 2 */}
-            <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
+            <div className='h-100  bg-gray-100 text-center flex flex-col items-center justify-center p-10 md:w-1/2'>
         
         
               <h4 className='mb-3'></h4>
@@ -169,13 +169,13 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
       <div className='mx-auto max-w-9xl my-10'>
           {/* First row */}
           <div className='flex flex-col  md:flex-row gap-3 mb-3'>
-            <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-5 md:w-1/3'>
+            <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-10 md:w-1/3'>
               <h4 className='text-md'>Welcome to Calm.</h4>
-              <h4 className='text-md fade-in'>Your simple and effective Health Dashboard</h4>
+              <h4 className='text-md relative'>Your simple and effective Health Dashboard</h4>
             </div>
-            <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center md:w-2/3'>
+            <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-10 items-center md:w-2/3'>
             <h4 className='mb-5'>Why use Calm?</h4>
-            <p className='text-sm text-center max-w-md fade-in '>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
+            <p className='text-sm text-center max-w-xl fade-in '>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
             </div>
           </div>
 
@@ -188,15 +188,15 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Verified reviews</h4>
-                    <p className='font-black text-5xl fade-in '>1000+</p></div>
+                    <p className='font-black md:text-5xl fade-in text-2xl '>1000+</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Active Users</h4>
-                    <p className='font-black text-5xl fade-in'>10000+</p>
+                    <p className='font-black md:text-5xl fade-in text-2xl'>10000+</p>
                   </div>
                 
                 </div>
 
-                <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-5 items-center mt-3'>
+                <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-10 items-center mt-3'>
                       <h4 className='mb-5'>Testimonials</h4>
                       <div className='flex flex-row items-between gap-10 xl:gap-20'>
                           
@@ -223,7 +223,7 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
         
         
               <h4 className='mb-3'>Our story</h4>
-              <p className='fade-in max-w-sm'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <p className='fade-in max-w-xl'>Welcome to Calm—a wellness hub driven by self-improvement and biohacking. Inspired by neuroscientist Andrew Huberman, our platform simplifies optimal living. More than an app, Calm is your modern lifestyle companion, designed for accessible well-being. We value simplicity, offering a seamless, modern design. Recognizing the multifaceted nature of health, we focus on five key pillars for a straightforward path to a healthier you.</p>
        
       
             

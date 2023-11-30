@@ -28,16 +28,15 @@ export default function Navbar() {
       navigate('/');
     } catch (error) {
       // Handle sign-out error
-      console.log(error)
       setError('Sign-out error:', error);
     }
   };
 
   return (
     <>
-    <div className='relative px-5 py-10 text-black bg-gray-100 w-full justify-between flex flex-row md:w-1/4 lg:max-w-xs md:flex-col md:items-between lg:px-10'>
+    <div className='px-5 py-10 text-black bg-gray-100 w-full justify-between flex flex-row md:w-1/4 lg:max-w-xs md:flex-col md:items-between lg:px-10'>
         <div className='flex items-center md:items-start md:flex-col'>
-            <h3 className='font-black text-2xl md:text-3xl'>Calm.</h3>
+        <Link to="/"><h3 className='font-black text-2xl md:text-3xl'>Calm.</h3></Link>
             
             <div className='hidden gap-2 ml-10 md:gap-4 md:ml-0 md:mt-20 flex-row sm:flex md:flex-col'>
               <div className='flex'><img className='hidden md:flex mr-4' src={dashboard} width={20} height={20}/><Link to="/"><p className='text-sm 3xl:text-lg'>Dashboard</p></Link></div>
@@ -61,11 +60,13 @@ export default function Navbar() {
     </div>
      {
       isMenuShown && <div>
-          <div className='absolute top-15 right-20 z-2 border p-5 bg-white sm:hidden'>
-            <p>Navbar</p>
-            <p>Navbar</p>
-            <p>Navbar</p>
-            <p>Navbar</p>
+          <div className='absolute fade-in w-full top-15 p-5 bg-white flex items-center flex-col sm:hidden'>
+            <Link to="/"><p className='text-md'>Dashboard</p></Link>
+            <Link to="sleep"><p className='text-md'>Sleep</p></Link>
+            <Link to="movement"><p className='text-md'>Movement</p></Link>
+            <Link to="morning"><p className='text-md'>Morning</p></Link>
+            <Link to="nutrition"><p className='text-md'>Nutrition</p></Link>
+            <Link to="relationships"><p className='text-md'>Relationships</p></Link>
           </div>
         </div>
      }
