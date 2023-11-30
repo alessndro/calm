@@ -60,7 +60,7 @@ export default function Navbar() {
     </div>
      {
       isMenuShown && <div>
-          <div className='absolute fade-in w-full top-15 p-5 bg-white flex items-center flex-col sm:hidden'>
+          <div className='absolute  w-full top-15 p-5 bg-white flex justify-center gap-2 flex-col sm:hidden'>
             <Link to="/"><p className='text-md'>Dashboard</p></Link>
             <Link to="sleep"><p className='text-md'>Sleep</p></Link>
             <Link to="movement"><p className='text-md'>Movement</p></Link>

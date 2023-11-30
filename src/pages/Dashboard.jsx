@@ -171,11 +171,11 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
           <div className='flex flex-col  md:flex-row gap-3 mb-3'>
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-10 md:w-1/3'>
               <h4 className='text-md'>Welcome to Calm.</h4>
-              <h4 className='text-md relative'>Your simple and effective Health Dashboard</h4>
+              <h4 className='text-md'>Your simple and effective Health Dashboard</h4>
             </div>
             <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-10 items-center md:w-2/3'>
             <h4 className='mb-5'>Why use Calm?</h4>
-            <p className='text-sm text-center max-w-xl fade-in '>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
+            <p className='text-sm text-center max-w-xl'>Calm was crafted to seamlessly integrate tranquility into everyday life, providing a simple, effective, and science-based solution for holistic wellbeing.</p>
             </div>
           </div>
 
@@ -188,10 +188,10 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Verified reviews</h4>
-                    <p className='font-black md:text-5xl fade-in text-2xl '>1000+</p></div>
+                    <p className='font-black md:text-5xl text-2xl '>1000+</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Active Users</h4>
-                    <p className='font-black md:text-5xl fade-in text-2xl'>10000+</p>
+                    <p className='font-black md:text-5xl text-2xl'>10000+</p>
                   </div>
                 
                 </div>
@@ -223,7 +223,7 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
         
         
               <h4 className='mb-3'>Our story</h4>
-              <p className='fade-in max-w-xl'>Welcome to Calm—a wellness hub driven by self-improvement and biohacking. Inspired by neuroscientist Andrew Huberman, our platform simplifies optimal living. More than an app, Calm is your modern lifestyle companion, designed for accessible well-being. We value simplicity, offering a seamless, modern design. Recognizing the multifaceted nature of health, we focus on five key pillars for a straightforward path to a healthier you.</p>
+              <p className='max-w-xl'>Welcome to Calm—a wellness hub driven by self-improvement and biohacking. Inspired by neuroscientist Andrew Huberman, our platform simplifies optimal living. More than an app, Calm is your modern lifestyle companion, designed for accessible well-being. We value simplicity, offering a seamless, modern design. Recognizing the multifaceted nature of health, we focus on five key pillars for a straightforward path to a healthier you.</p>
        
       
             
