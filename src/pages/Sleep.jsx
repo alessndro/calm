@@ -54,6 +54,7 @@ export default function Sleep() {
       })
       const data = await response.json()
       setFeedback(data.value)
+      setUserInput('')
     }
     fetchFeedback()
   }
