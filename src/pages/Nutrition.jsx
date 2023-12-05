@@ -32,10 +32,10 @@ export default function Nutrition() {
 
   })
 
-
-  const [feedback, setFeedback] = React.useState('')
   const [isSurveyAvailable, setIsSurveyAvailable] = React.useState(true)
   const {currentUser} = useAuthContext()
+  const [userInput, setUserInput] = React.useState('')
+  const [feedback, setFeedback] = React.useState('')
 
   function handleChange(event){
     setUserInput(event.target.value)
@@ -230,11 +230,11 @@ export default function Nutrition() {
             <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center p-5 md:w-1/2'>
         
               <h4 className='mt-10 mb-5'>Ask one of our Nutrition experts</h4>
-      
+       
               <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey there, I'm Jeff, your personal Nutrition expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
+                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey there, I'm Steve, your personal Food expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
                   
                 </div>
                 {!feedback && <div className='mb-20'></div>}

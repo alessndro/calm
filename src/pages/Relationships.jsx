@@ -34,6 +34,30 @@ export default function Relationships() {
 
   const [isSurveyAvailable, setIsSurveyAvailable] = React.useState(true)
   const {currentUser} = useAuthContext()
+  const [userInput, setUserInput] = React.useState('')
+  const [feedback, setFeedback] = React.useState('')
+
+  function handleChange(event){
+    setUserInput(event.target.value)
+  }
+
+  async function handleSubmit(event){
+    event.preventDefault()
+    async function fetchFeedback() {
+      const response = await fetch("https://spectacular-tartufo-1e017e.netlify.app/.netlify/functions/fetchFeedback", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: `${userInput} * You are an expert in Relationships for Calm, a Health platform. 
+        A user has a question for you and you want to provide them with supportive, pragmatic and nice feedback. `,
+      })
+      const data = await response.json()
+      setFeedback(data.value)
+      setUserInput('')
+    }
+    fetchFeedback()
+  }
   
   async function handleClick(event){
     setIsSurveyAvailable(false)
@@ -205,18 +229,20 @@ export default function Relationships() {
             {/* Column 2 */}
             <div className='h-100 relative bg-gray-100 text-center flex flex-col items-center p-5 md:w-1/2'>
         
-              <h4 className='mt-10 mb-5'>Ask one of our Relationships experts</h4>
+              <h4 className='mt-10 mb-5'>Ask one of our Relationship experts</h4>
        
               <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Alex, Calm's sleeping expert 👋</p> <p className='text-start'>Ask me anything!</p></div>
+                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey, I'm Lela, your personal Relationships expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
                   
                 </div>
-                <div className='mb-20'></div>
+                {!feedback && <div className='mb-20'></div>}
                 <div className='flex mb-5 py-3 px-5 bg-white rounded-full justify-between max-w-xl'>
-                  <input className='ml-3 outline-none' type='text' placeholder='type a message..' />
+                <form onSubmit={handleSubmit} className='flex justify-between w-full'>
+                  <input className='ml-3 outline-none' type='text' placeholder='type a message..' value={userInput} onChange={handleChange}/>
                   <img className='' src={send} width={25} height={25}/>
+                </form>
                 </div>
               </div>
               <div>
