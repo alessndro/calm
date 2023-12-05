@@ -9,12 +9,12 @@ const openai = new OpenAI({
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
   
-  const data = event.body.split('*')
-  console.log(data)
   try {
-    const response = await openai.completions.create({
+      const dataUser = event.body.split('*')
+      console.log(`Your expertise: ${dataUser[0]}. The user asks you the following questions: ${dataUser[1]}.`)
+      const response = await openai.completions.create({
       model:'text-davinci-003',
-      prompt: `Your expertise: ${data[0]}. The user asks you the following questions: ${data[1]}.`,
+      prompt: `Your expertise: ${dataUser[0]}. The user asks you the following questions: ${dataUser[1]}.`,
       max_tokens: 200,
       })
   
