@@ -13,7 +13,7 @@ import trendup from '../assets/trending-up.svg'
 import eyeoff from '../assets/eye-off.svg'
 import send from '../assets/send.svg'
 import movementCoach from '../assets/movementCoach.mp4'
-import movementCoachGif from '../assets/movementCoach-unscreen3.gif'
+import movement from '../assets/movement.gif'
 import { collection, addDoc, onSnapshot, setDoc, doc } from "firebase/firestore";
 import { getDocs } from "firebase/firestore"; 
 import {db} from '../firebaseConfig';
@@ -234,7 +234,7 @@ export default function Movement() {
         
               <h4 className='mt-10 mb-5'>Ask one of our Movement experts</h4>
        
-              <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
+              <img className='mb-5' src={movement} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
                   {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey, I'm Fredo, your personal Movement expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
