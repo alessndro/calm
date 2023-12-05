@@ -9,7 +9,7 @@ const openai = new OpenAI({
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
   
-  const data = event.body('*')
+  const data = event.body.split('*')
   console.log(data)
   try {
     const response = await openai.completions.create({
