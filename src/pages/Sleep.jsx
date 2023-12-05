@@ -32,6 +32,7 @@ export default function Sleep() {
   const [isSurveyAvailable, setIsSurveyAvailable] = React.useState(true)
   const {currentUser} = useAuthContext()
   const [userInput, setUserInput] = React.useState('')
+  const [feedback, setFeedback] = React.useState()
 
   console.log(userInput)
 
@@ -47,7 +48,8 @@ export default function Sleep() {
         headers: {
           'Content-Type': 'text/plain',
         },
-        body: `${userInput}`,
+        body: `${userInput} * Provide me with a chatgpt open ai prompt. You are an expert in Sleep for Calm, a Health platform. 
+        A user has a question for you and you want to provide them with supportive, pragmatic and nice feedback. `,
       })
       const data = await response.json()
       setRecommendations(data.value)
@@ -230,7 +232,7 @@ export default function Sleep() {
               <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Alex, Calm's sleeping expert 👋</p> <p className='text-start'>Ask me anything!</p></div>
+                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Alex, Calm's sleeping expert 👋</p> <p className='text-start'>Ask me anything!</p></div>}
                   
                 </div>
                 <div className='mb-20'></div>
