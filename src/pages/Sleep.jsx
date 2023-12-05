@@ -52,7 +52,7 @@ export default function Sleep() {
         A user has a question for you and you want to provide them with supportive, pragmatic and nice feedback. `,
       })
       const data = await response.json()
-      setRecommendations(data.value)
+      setFeedback(data.value)
     }
     fetchFeedback()
   }
