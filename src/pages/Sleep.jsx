@@ -32,7 +32,8 @@ export default function Sleep() {
   const [isSurveyAvailable, setIsSurveyAvailable] = React.useState(true)
   const {currentUser} = useAuthContext()
   const [userInput, setUserInput] = React.useState('')
-  const [feedback, setFeedback] = React.useState()
+  //const [feedback, setFeedback] = React.useState('')
+  const [feedback, setFeedback] = React.useState('Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?')
 
   console.log(userInput)
 
@@ -232,10 +233,10 @@ export default function Sleep() {
               <img className='mb-5' src={movementCoachGif} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-96 overflow-y-auto'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Alex, Calm's sleeping expert 👋</p> <p className='text-start'>Ask me anything!</p></div>}
+                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-52 overflow-y-auto w-96'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey there, I'm Alex, your personal Sleep expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
                   
                 </div>
-                <div className='mb-20'></div>
+                {!feedback && <div className='mb-20'></div>}
                 <div className='flex mb-5 py-3 px-5 bg-white rounded-full justify-between max-w-xl'>
                 <form onSubmit={handleSubmit} className='flex justify-between w-full'>
                   <input className='ml-3 outline-none' type='text' placeholder='type a message..' value={userInput} onChange={handleChange}/>
