@@ -49,7 +49,7 @@ export default function Nutrition() {
         headers: {
           'Content-Type': 'text/plain',
         },
-        body: `${userInput} * Provide me with a chatgpt open ai prompt. You are an expert in Nutrition for Calm, a Health platform. 
+        body: `${userInput} * You are an expert in Nutrition for Calm, a Health platform. 
         A user has a question for you and you want to provide them with supportive, pragmatic and nice feedback. `,
       })
       const data = await response.json()
