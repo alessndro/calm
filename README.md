@@ -10,13 +10,13 @@
 
 > Choose Calm for a comprehensive wellness experience centered around the five pillars of health, offering personalized guidance and expert insights to support your journey towards a balanced and fulfilling life.
 
-### 🚀 [The Story](https://lighthearted-tulumba-ad8574.netlify.app)
+### 🚀 [The Story](https://spectacular-tartufo-1e017e.netlify.app)
 
 The Calm Platform is a wellness platform meticulously crafted around the five pillars of health: Sleep, Morning Routine, Evening Routine, Exercise, and Relationships. We believe in fostering holistic well-being by providing guidance and support in these key areas. Whether you're looking to enhance your sleep quality, establish mindful morning and evening routines, stay active with effective exercise regimens, or nurture meaningful relationships, the Calm Platform is here to empower you on your journey to a healthier and more balanced life. Explore our features, personalized recommendations, and expert advice to embark on a path of tranquility and vitality.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### 🧠 [The Logic](https://lighthearted-tulumba-ad8574.netlify.app)
+### 🧠 [The Logic](https://spectacular-tartufo-1e017e.netlify.app)
 
 The Calm Health Platform leverages React as its primary frontend framework, ensuring a responsive and seamless user interface. Firebase is harnessed for secure user authentication, guaranteeing a safe login process, and acts as the database for storing daily survey ratings, facilitating consistent user engagement.
 
@@ -26,28 +26,31 @@ Netlify is instrumental in implementing serverless functions and managing enviro
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### 🏠 [Homepage](https://lighthearted-tulumba-ad8574.netlify.app)
-
-![Homepage demo](https://github.com/alessndro/MindScribe/blob/main/src/assets/home.gif)
-
-## Home
-![Homepage](https://github.com/alessndro/MindScribe/blob/main/src/assets/home.png)
+### 🏠 [Homepage](https://spectacular-tartufo-1e017e.netlify.app)
 
 ## Dashboard
-![Homepage](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboard.png)
+![Dashboard](https://github.com/alessndro/calm/blob/main/src/assets/dashboard1Screen.png)
 
-## Dashboard - Summary
-![Summary](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboardSummary.png)
+![Dashboard](https://github.com/alessndro/calm/blob/main/src/assets/dashboard2Screen.png)
 
-## Dashboard - Practice
-![Practice](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboardPractice.png)
+## Sleep
+![Sleep](https://github.com/alessndro/calm/blob/main/src/assets/sleepScreen.png)
 
-## Dashboard - Tutor
-![Tutor](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboardTutor.png)
+## Movement
+![Movement](https://github.com/alessndro/calm/blob/main/src/assets/movementScreen.png)
+
+## Morning
+![Morning](https://github.com/alessndro/calm/blob/main/src/assets/morningScreen.png)
+
+## Nutrition
+![Nutrition](https://github.com/alessndro/calm/blob/main/src/assets/nutritionScreen.png)
+
+## Relationships
+![Relationships](https://github.com/alessndro/calm/blob/main/src/assets/relationshipsScreen.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### ✨ [Demo](https://lighthearted-tulumba-ad8574.netlify.app)
+### ✨ [Demo](https://spectacular-tartufo-1e017e.netlify.app)
 
 ## Install
 
@@ -122,17 +125,15 @@ Remember to replace `"your-username/your-repository"` with the actual URL of you
 
 ### Built With
 
-* React: At the core of Mindscribe is React, a JavaScript library for building user interfaces. React allows for the creation of dynamic and responsive web applications with its component-based architecture.
+* React: At the core of Calm is React, a JavaScript library for building user interfaces. React allows for the creation of dynamic and responsive web applications with its component-based architecture.
 
-* React Router: Mindscribe uses React Router to enable smooth navigation. It provides the ability to create multiple views and routes within a single-page application, enhancing user experience.
+* React Router: Calm uses React Router to enable smooth navigation. It provides the ability to create multiple views and routes within a single-page application, enhancing user experience.
 
-* OpenAI API: Mindscribe integrates the OpenAI API to deliver text summarization and generate practice questions. OpenAI's AI models extract key information and create educational content, enhancing the learning experience.
-
-* RapidAPI: To streamline the summarization process, Mindscribe makes use of RapidAPI, a platform that connects developers with a wide range of APIs. RapidAPI facilitates the quick development and integration of third-party services and data sources.
+* OpenAI API: Calm integrates the OpenAI API to deliver custom feedback. OpenAI's AI models extract key information and create educational feedback and interaction, enhancing the learning experience.
 
 * Netlify: Netlify was used for hosting the website. Furthermore, to hide my API keys I made use of severless function and environment variables, which are both part of netlify's features.
 
-* Additional Libraries: Mindscribe relies on additional libraries and functions to optimize its features. For instance, Firebase is employed for user authentication and Firestore for database management, ensuring secure user interactions and data storage. Various other libraries and functions work together to enhance Mindscribe's overall efficiency and effectiveness.
+* Additional Libraries: Calm relies on additional libraries and functions to optimize its features. For instance, Firebase is employed for user authentication and Firestore for database management, ensuring secure user interactions and data storage. Various other libraries and functions work together to enhance Mindscribe's overall efficiency and effectiveness.
 
 [![React][React.js]][React-url]
 
@@ -157,7 +158,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
