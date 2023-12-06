@@ -234,7 +234,7 @@ export default function Nutrition() {
               <img className='mb-5' src={food} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey there, I'm Steve, your personal Food expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
+                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey there, I'm Steve, your personal Food expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
                   
                 </div>
                 {!feedback && <div className='mb-20'></div>}

@@ -204,9 +204,9 @@ Your well-being is a unique journey, and Calm is here to help you every step of 
                 
                 </div>
 
-                <div className='h-64 bg-gray-100 text-center flex flex-col justify-center p-10 items-center mt-3'>
+                <div className='max-h-64 bg-gray-100 text-center flex flex-col justify-center p-5 items-center mt-3 lg:p-10'>
                       <h4 className='mb-5'>Testimonials</h4>
-                      <p className='text-center max-w-md mb-5'>{showcaseTestimonial.text}</p>
+                      <p className='text-center max-w-md mb-5 text-sm lg:text-md'>{showcaseTestimonial.text}</p>
                       <p className='text-sm'>- {showcaseTestimonial.name}</p>
                 </div>
             </div>

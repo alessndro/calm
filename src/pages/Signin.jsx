@@ -1,7 +1,7 @@
 import React from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebaseConfig.jsx'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../components/AuthContext.jsx';
 
 export default function Signin() {
@@ -60,7 +60,7 @@ return (
             </form>
             <div className='flex items-between gap-16 lg:gap-36'>
                 <p className='text-sm'>Need an account?</p>
-                <p className='text-sm text-gray-500'>Create an account</p>
+                <Link to="/signup"><p className='text-sm text-gray-500'>Create an account</p></Link>
             </div>
         </div>
     </div>

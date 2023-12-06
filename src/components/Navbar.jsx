@@ -72,6 +72,8 @@ export default function Navbar() {
             <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="morning"><p className='text-md'>Morning</p></NavLink>
             <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="nutrition"><p className='text-md'>Nutrition</p></NavLink>
             <NavLink  style={({isActive}) => isActive ? activeStyle : null} to="relationships"><p className='text-md'>Relationships</p></NavLink>
+            {currentUser ? <button className='bg-black text-white px-4 py-2 p-2 text-center rounded-full' onClick={handleLogOut}>Sign out</button> :  
+            <NavLink className='bg-black text-white px-4 py-2 p-2 text-center rounded-full' style={({isActive}) => isActive ? activeStyle : null} to="signin"><p className='text-md'>Sign in</p></NavLink> }
             
           </div>
         </div>

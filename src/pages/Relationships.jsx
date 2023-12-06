@@ -169,7 +169,7 @@ export default function Relationships() {
             {isSurveyAvailable ? <div className='h-64 bg-gray-100 text-center flex flex-col justify-center items-center p-5 md:w-1/3'>
               <h4 className='text-md mb-2'>Today's Check in</h4>
               <p className='text-sm'>How would you rate your Relationships?</p>
-              <div onClick={handleClick} className='flex flex-row mt-5 gap-10 fade-in'>
+              <div onClick={handleClick} className='flex flex-row mt-5 gap-10'>
                 <div id="1" className=''><img id="1" className='' src={moon1} width={30} height={30}/></div>
                 <div id="2" className=''><img id="2" className='' src={moon2} width={30} height={30}/></div>
                 <div id="3" className=''><img id="3" className='' src={moon3} width={30} height={30}/></div>
@@ -196,10 +196,10 @@ export default function Relationships() {
                   
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Current Streak in days</h4>
-                    <p className='font-black text-5xl fade-in '>{relationships ? relationships.streak : '0'}</p></div>
+                    <p className='font-black text-5xl '>{relationships ? relationships.streak : '0'}</p></div>
                   <div className='w-1/2 bg-gray-100 h-full flex flex-col items-center justify-center'>
                     <h4 className='mb-5'>Average Score</h4>
-                    <p className='font-black text-5xl fade-in'>{relationships ? relationships.average : '0'}</p>
+                    <p className='font-black text-5xl'>{relationships ? relationships.average : '0'}</p>
                   </div>
                 
                 </div>
@@ -234,7 +234,7 @@ export default function Relationships() {
               <img className='mb-5' src={relationship} width={200} height={200}/>
               <div>
                 <div className='flex flex-col items-start justify-start mb-5'>
-                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start w-96'>Hey, I'm Lela, your personal Relationships expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
+                  {feedback ? <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start h-28 overflow-y-auto max-w-sm'>{feedback}</p></div> : <div className='bg-gray-300 rounded-lg py-2 px-4 mb-2'><p className='text-start'>Hey, I'm Lela, your personal Relationships expert 👋!</p> <p className='text-start'>Ask me anything!</p></div>}
                   
                 </div>
                 {!feedback && <div className='mb-20'></div>}
