@@ -31,7 +31,7 @@ Netlify is instrumental in implementing serverless functions and managing enviro
 ## Dashboard
 ![Dashboard](https://github.com/alessndro/calm/blob/main/src/assets/dashboard1Screen.png)
 
-![Dashboard](https://github.com/alessndro/calm/blob/main/src/assets/dashboard2Screen.png)
+![Dashboard](https://github.com/alessndro/calm/blob/main/src/assets/dashboard3Screen.png)
 
 ## Sleep
 ![Sleep](https://github.com/alessndro/calm/blob/main/src/assets/sleepScreen.png)
