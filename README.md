@@ -12,7 +12,7 @@
 
 ### 🚀 [The Story](https://spectacular-tartufo-1e017e.netlify.app)
 
-The Calm Platform is a wellness platform meticulously crafted around the five pillars of health: Sleep, Morning Routine, Evening Routine, Exercise, and Relationships. We believe in fostering holistic well-being by providing guidance and support in these key areas. Whether you're looking to enhance your sleep quality, establish mindful morning and evening routines, stay active with effective exercise regimens, or nurture meaningful relationships, the Calm Platform is here to empower you on your journey to a healthier and more balanced life. Explore our features, personalized recommendations, and expert advice to embark on a path of tranquility and vitality.
+The Calm Platform is a Health platform meticulously crafted around the five pillars of health: Sleep, Morning Routine, Evening Routine, Exercise, and Relationships. We believe in fostering holistic well-being by providing guidance and support in these key areas. Whether you're looking to enhance your sleep quality, establish mindful morning and evening routines, stay active with effective exercise regimens, or nurture meaningful relationships, the Calm Platform is here to empower you on your journey to a healthier and more balanced life. Explore our features, personalized recommendations, and expert advice to embark on a path of tranquility and vitality.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
